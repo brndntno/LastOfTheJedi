@@ -13,4 +13,5 @@ public class ForceUser {
     public int getMidichlorianCount() {
         return midichlorianCount;
     }
+    public void something(){}
 }
