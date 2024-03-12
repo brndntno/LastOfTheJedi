@@ -11,9 +11,6 @@ public class StarWarsGame {
         String name = scan.nextLine();
         System.out.println("Are you part of the dark side or the light side?");
         String side = scan.nextLine();
-        if () {
-
-        }
     }
 
     public void start() {
