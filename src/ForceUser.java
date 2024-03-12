@@ -1,17 +1,29 @@
 public class ForceUser {
-    String name;
-    int midichlorianCount;
-    public ForceUser(String name, int midichlorianCount) {
+    private String name;
+    private double midichlorianCount;
+    private double health;
+    public ForceUser(String name, int midichlorianCount, double health) {
         this.name = name;
         this.midichlorianCount = midichlorianCount;
+        this.health = health;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getMidichlorianCount() {
+    public double getMidichlorianCount() {
         return midichlorianCount;
     }
-    public void something(){}
+
+    public double getHealth() {
+        return health;
+    }
+
+    public void takeDamage(double damage) {
+        health -= damage;
+    }
+    public void forcePush(double damage, ForceUser user) {
+        user.health -= damage;
+    }
 }
