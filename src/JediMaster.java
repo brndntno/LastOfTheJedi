@@ -24,4 +24,8 @@ public class JediMaster extends JediKnight {
             }
         }
     }
+
+    public void poop() {
+        System.out.println("poop");
+    }
 }
