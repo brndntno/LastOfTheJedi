@@ -8,6 +8,7 @@ public class NahIWillWinGame {
     String JediOrSith;
     public NahIWillWinGame() {
         scan = new Scanner(System.in);
+        setBoss();
         greetings();
 
     }
@@ -20,10 +21,11 @@ public class NahIWillWinGame {
         if (JediOrSith.equals("J")) {
             System.out.println("Hello young padawan! Please state your name: ");
             name = scan.nextLine();
-            System.out.println("The galaxy is in crisis! As such, we must accelerate the training of our Jedi. Your mission, " + name + ", is to defeat ");
+            System.out.println("The galaxy is in crisis! As such, we must accelerate the training of our Jedi. Your mission, " + name + ", is to defeat " + finalBoss.getName() + "");
         } else {
             System.out.println("Hello youngling! Please state your name: ");
             name = scan.nextLine();
+            if (name.equals("J"))
         }
     }
 
@@ -41,7 +43,13 @@ public class NahIWillWinGame {
             if (Math.random() < 0.5) {
                 finalBoss = new CountDooku("Count Dooku", 30000, 10000);
             } else {
-                finalBoss = new DarthSidious("Darth Sidious", 40000, 20000)
+                finalBoss = new DarthSidious("Darth Sidious", 40000, 20000);
+            }
+        } else {
+            if (Math.random() < 0.5) {
+                finalBoss = new GrandmasterMaceWindu("Mace Windu", 30000, 10000);
+            } else {
+                finalBoss = new GrandmasterYoda("Yoda", 40000, 20000);
             }
         }
     }
