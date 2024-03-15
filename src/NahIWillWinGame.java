@@ -4,6 +4,7 @@ import java.util.ArrayList;
 public class NahIWillWinGame {
     private Scanner scan;
     private String name;
+    private ForceUser finalBoss;
     String JediOrSith;
     public NahIWillWinGame() {
         scan = new Scanner(System.in);
@@ -36,6 +37,12 @@ public class NahIWillWinGame {
         //
     }
     public void setBoss() {
-
+        if (JediOrSith.equals("J")) {
+            if (Math.random() < 0.5) {
+                finalBoss = new CountDooku("Count Dooku", 30000, 10000);
+            } else {
+                finalBoss = new DarthSidious("Darth Sidious", 40000, 20000)
+            }
+        }
     }
 }

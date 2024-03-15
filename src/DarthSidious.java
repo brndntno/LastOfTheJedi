@@ -1,2 +1,3 @@
-public class DarthSidious {
+public class DarthSidious extends ForceUser {
+
 }
