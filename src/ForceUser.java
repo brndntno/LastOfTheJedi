@@ -3,10 +3,12 @@ public class ForceUser {
     private double midichlorianCount;
     private double health;
     private double initialHealth = health;
+    private boolean tranceState;
     public ForceUser(String name, double midichlorianCount, double health) {
         this.name = name;
         this.midichlorianCount = midichlorianCount;
         this.health = health;
+        this.tranceState = false;
     }
 
     public String getName() {
