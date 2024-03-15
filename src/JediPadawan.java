@@ -9,8 +9,8 @@ public class JediPadawan extends Jedi {
         return forceWall;
     }
 
-    public void saberTwirl(double midichlorianCount, ForceUser user) {
-        double damage = midichlorianCount * 0.05;
+    public void saberTwirl(ForceUser user) {
+        double damage = getMidichlorianCount() * 0.05;
         if (user.getHealth() <= user.getInitialHealth() / 2) {
             damage *= 2;
         } else if (user.getHealth() < user.getInitialHealth()) {
