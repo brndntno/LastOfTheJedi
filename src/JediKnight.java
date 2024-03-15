@@ -7,6 +7,8 @@ public class JediKnight extends JediPadawan {
     public int getBattleMeditation() {
         return battleMeditation;
     }
+
+    @Override
     public void saberTwirl(ForceUser user){
         if (getBattleMeditation() < 5) {
             super.saberTwirl(user);
@@ -15,17 +17,5 @@ public class JediKnight extends JediPadawan {
             super.saberTwirl(user);
             super.saberTwirl(user);
         }
-    }
-
-    public int getBattleMeditation() {
-        return battleMeditation;
-    }
-
-    @Override
-    public void saberTwirl(double midichlorianCount, ForceUser user) {
-        if (getBattleMeditation() < 5) {
-
-        }
-        super.saberTwirl(midichlorianCount, user);
     }
 }
