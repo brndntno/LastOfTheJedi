@@ -1,12 +1,11 @@
 import java.util.Scanner;
-import java.util.ArrayList;
 
-public class NahIWillWinGame {
+public class Game {
     private Scanner scan;
     private String name;
     private ForceUser finalBoss;
     String JediOrSith;
-    public NahIWillWinGame() {
+    public Game() {
         scan = new Scanner(System.in);
         setBoss();
         greetings();
@@ -25,7 +24,7 @@ public class NahIWillWinGame {
         } else {
             System.out.println("Hello youngling! Please state your name: ");
             name = scan.nextLine();
-            if (name.equals("J"))
+
         }
     }
 
@@ -36,7 +35,6 @@ public class NahIWillWinGame {
         user.forcePush(1000, user2);
         System.out.println(user2.getHealth());
 
-        //
     }
     public void setBoss() {
         if (JediOrSith.equals("J")) {
