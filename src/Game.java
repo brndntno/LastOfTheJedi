@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Game {
@@ -5,6 +6,7 @@ public class Game {
     private String name;
     private ForceUser finalBoss;
     private boolean isJedi;
+    private ArrayList<ForceUser> team1;
     public Game() {
         scan = new Scanner(System.in);
         setBoss();
@@ -35,12 +37,25 @@ public class Game {
     }
 
     public void Game() {
-        ForceUser user = new ForceUser("Anakin", 20000, 10000);
-        ForceUser user2 = new ForceUser("Ahsoka", 15000, 10000);
+        if (isJedi) {
+            JediPadawan user = new JediPadawan(name, 20000, 10000);
+            jediStory(user);
 
-        user.forcePush(1000, user2);
-        System.out.println(user2.getHealth());
+        }
 
+
+
+
+
+    }
+
+    public void jediStory(ForceUser user) {
+        System.out.println("A long time ago, in a galaxy far, far away, the Jedi's lived peacefully, but suddenly, the sith started the clone wars.\nDue to this time of war, the jedi were unable to properly train their padawans.\nAs such, padawans were required to persist past ominous tribulations.");
+        setBoss();
+        System.out.println("Your mission will be to overcome the forces of evil that ravage this galaxy.\nYou must defeat " + finalBoss.getName() + ".");
+        team1 = new ArrayList<>();
+        team1.add(user);
+        System.out.println("You will be assigned with a group of five Jedi, in which YOU SHALL BE DA LEADER!");
     }
     public void setBoss() {
         if (isJedi) {
