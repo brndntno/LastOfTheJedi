@@ -4,7 +4,7 @@ public class Game {
     private Scanner scan;
     private String name;
     private ForceUser finalBoss;
-    String JediOrSith;
+    private boolean isJedi;
     public Game() {
         scan = new Scanner(System.in);
         setBoss();
@@ -13,11 +13,17 @@ public class Game {
     }
 
     public void greetings() {
-        while (!JediOrSith.equals("J") || !JediOrSith.equals("S")) {
+        String JediOrSith = "";
+        while (!JediOrSith.equals("J") && !JediOrSith.equals("S")) {
             System.out.println("Enter J to become a jedi or enter S to become a Sith!");
             JediOrSith = scan.nextLine();
+            if (JediOrSith.equals("J")) {
+                isJedi = true;
+            } else {
+                isJedi = false;
+            }
         }
-        if (JediOrSith.equals("J")) {
+        if (isJedi) {
             System.out.println("Hello young padawan! Please state your name: ");
             name = scan.nextLine();
             System.out.println("The galaxy is in crisis! As such, we must accelerate the training of our Jedi. Your mission, " + name + ", is to defeat " + finalBoss.getName() + "");
@@ -37,7 +43,7 @@ public class Game {
 
     }
     public void setBoss() {
-        if (JediOrSith.equals("J")) {
+        if (isJedi) {
             if (Math.random() < 0.5) {
                 finalBoss = new CountDooku("Count Dooku", 30000, 10000);
             } else {
