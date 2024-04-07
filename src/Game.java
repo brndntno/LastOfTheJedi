@@ -19,6 +19,7 @@ public class Game {
         name = scan.nextLine();
         JediPadawan user = new JediPadawan(name, 10000, 5000);
         jediStory(user);
+        level1();
     }
 
     public void jediStory(ForceUser user) {
@@ -37,15 +38,18 @@ public class Game {
     public void level1() {
         System.out.println("For your first trial, you must incapacitate the three sith assassins recently found on Tatooine");
 
-        ForceUser[] forceUsers = new ForceUser[5];
+        ArrayList<ForceUser> forceUsers = new ArrayList<ForceUser>();
         SithAssassin tentabrus = new SithAssassin("Tentabrus", 7500, 4250);
         SithAssassin diosius = new SithAssassin("Diosius", 8500, 4000);
         SithAssassin tresskuven = new SithAssassin("Tressku", 8000, 3500);
-        forceUsers[0] = tentabrus;
-        forceUsers[1] = diosius;
-        forceUsers[2] = tresskuven;
+        forceUsers.set(0, tentabrus);
+        forceUsers.set(1, diosius);
+        forceUsers.set(2, tresskuven);
+        while (forceUsers.size() > 0) {
 
+        }
     }
+
 
     public void setBoss() {
         if (Math.random() < 0.5) {
