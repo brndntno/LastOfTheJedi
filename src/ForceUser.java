@@ -43,12 +43,12 @@ public class ForceUser {
     }
 
     public void forcePush(ForceUser user) {
-        double damage = midichlorianCount * 0.01;
-        user.health -= damage;
+        double damage = midichlorianCount * 0.10;
+        user.setHealth(-damage);
     }
 
     public void saberSlash(ForceUser user) {
-        double damage = midichlorianCount * 0.05;
-        user.health -= damage;
+        double damage = midichlorianCount * 0.20;
+        user.setHealth(-damage);
     }
 }

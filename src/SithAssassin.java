@@ -4,6 +4,8 @@ public class SithAssassin extends Sith{
 
     }
     public void saberSlash(ForceUser user) {
-        user.setHealth(-user.getInitialHealth() * 0.15);
+        double damage = user.getInitialHealth() * 0.15;
+        user.setHealth(-damage);
+        setHealth(-damage / 2);
     }
 }
