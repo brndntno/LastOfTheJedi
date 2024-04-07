@@ -39,12 +39,12 @@ public class ForceUser {
         return initialHealth;
     }
 
-    public void forcePush(double midichlorianCount, ForceUser user) {
+    public void forcePush(ForceUser user) {
         double damage = midichlorianCount * 0.01;
         user.health -= damage;
     }
 
-    public void saberSlash(double midichlorianCount, ForceUser user) {
+    public void saberSlash(ForceUser user) {
         double damage = midichlorianCount * 0.05;
         user.health -= damage;
     }

@@ -6,6 +6,6 @@ public class Sith extends ForceUser{
     }
 
     public void enrage() {
-
+        ;
     }
 }
