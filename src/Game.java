@@ -139,6 +139,7 @@ public class Game {
                 }
             }
             for (int i = 0; i < enemyTeam.size(); i++) {
+                System.out.println("hello");
                 enemyTeam.get(i).saberSlash(forceUsers.get(i));
             }
             for (int i = 0; i < team1.size(); i++) {
