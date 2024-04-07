@@ -5,10 +5,10 @@ public class SithApprentice extends SithAssassin{
     }
 
     public void forceLightning(ForceUser user) {
-        if (user.getHealth() < user.getInitialHealth() * 0.5) {
-            user.setHealth(user.getInitialHealth() * 0.4);
+        if (getHealth() < getInitialHealth() * 0.5) {
+            user.setHealth(-user.getInitialHealth() * 0.35);
         } else {
-            user.setHealth(user.getInitialHealth() * 0.3);
+            user.setHealth(-user.getInitialHealth() * 0.25);
         }
     }
 }
