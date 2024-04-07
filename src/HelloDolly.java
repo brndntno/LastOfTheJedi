@@ -12,5 +12,6 @@ public class HelloDolly {
         System.out.println("he fixed it");
         System.out.println("hello");
         System.out.println("he fixed it");
+        System.out.println("man");
     }
 }
