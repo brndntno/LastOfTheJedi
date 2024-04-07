@@ -5,7 +5,7 @@ public class Game {
     private Scanner scan;
     private String name;
     private ForceUser finalBoss;
-    private ArrayList<ForceUser> team1;
+    private ArrayList<JediPadawan> team1;
     private ArrayList<ForceUser> enemyTeam;
     public Game() {
         scan = new Scanner(System.in);
@@ -18,11 +18,10 @@ public class Game {
         System.out.println("Hello young padawan! Please state your name: ");
         name = scan.nextLine();
         JediPadawan user = new JediPadawan(name, 10000, 5000);
-        level1(user);
+        jediStory(user);
     }
 
-
-    public void level1(JediPadawan user) {
+    public void jediStory(JediPadawan user) {
         System.out.println("A long time ago, in a galaxy far, far away, the Jedi's lived peacefully, but suddenly, the sith started the clone wars.\nDue to this time of war, the jedi were unable to properly train their padawans.\nAs such, padawans were required to persist past ominous tribulations.");
         setBoss();
         System.out.println("Your mission will be to overcome the forces of evil that ravage this galaxy.\nYou must defeat " + finalBoss.getName() + ".");
@@ -34,6 +33,12 @@ public class Game {
         team1.add(wanobi);
         team1.add(akina);
 
+        level1(team1);
+    }
+
+
+    public void level1(ArrayList<JediPadawan> forceUsers) {
+
         System.out.println("For your first trial, you must incapacitate the three sith assassins recently found on Tatooine");
 
         enemyTeam = new ArrayList<ForceUser>();
@@ -44,7 +49,7 @@ public class Game {
         enemyTeam.set(1, diosius);
         enemyTeam.set(2, resskuven);
         while (enemyTeam.size() > 0) {
-            for (int i = 0; i < team1.size(); i++) {
+            for (int i = 0; i < forceUsers.size(); i++) {
                 String target;
                 System.out.print("Choose your target ((T)entabrus, (D)iosius, (R)esskuven): ");
                 target = scan.nextLine();
@@ -53,27 +58,27 @@ public class Game {
                     System.out.print("Choose your ability (force(P)ush, saber(S)lash, force(H)eal, saber(T)wirl): ");
                     ability = scan.nextLine();
                     if (ability.equals("P")) {
-                        user.forcePush(tentabrus);
+                        forceUsers.get(i).forcePush(tentabrus);
                     }
                     if (ability.equals("S")) {
-                        user.saberSlash(tentabrus);
+                        forceUsers.get(i).saberSlash(tentabrus);
                     }
                     if (ability.equals("H")) {
                         String who;
-                        System.out.print("Who would you like to heal? ((W)anobi, (A)kina, (" + user.getName() + ")): ");
+                        System.out.print("Who would you like to heal? ((W)anobi, (A)kina, (" + forceUsers.get(0).getName() + ")): ");
                         who = scan.nextLine();
                         if (who.equals("W")) {
-                            user.forceHeal(user.getMidichlorianCount(), wanobi);
+                            forceUsers.get(i).forceHeal(forceUsers.get(i).getMidichlorianCount(), forceUsers.get(1));
                         }
                         if (who.equals("A")) {
-                            user.forceHeal(user.getMidichlorianCount(), akina);
+                            forceUsers.get(i).forceHeal(forceUsers.get(i).getMidichlorianCount(), forceUsers.get(2));
                         }
-                        if (who.equals(user.getName())) {
-                            user.forceHeal(user.getMidichlorianCount(), user);
+                        if (who.equals(forceUsers.get(0).getName())) {
+                            forceUsers.get(i).forceHeal(forceUsers.get(i).getMidichlorianCount(), forceUsers.get(0));
                         }
                     }
                     if (ability.equals("T")) {
-                        user.saberTwirl(tentabrus);
+                        forceUsers.get(i).saberTwirl(tentabrus);
                     }
                 }
                 if (target.equals("D")) {
@@ -81,27 +86,27 @@ public class Game {
                     System.out.print("Choose your ability (force(P)ush, saber(S)lash, force(H)eal, saber(T)wirl): ");
                     ability = scan.nextLine();
                     if (ability.equals("P")) {
-                        user.forcePush(diosius);
+                        forceUsers.get(i).forcePush(diosius);
                     }
                     if (ability.equals("S")) {
-                        user.saberSlash(diosius);
+                        forceUsers.get(i).saberSlash(diosius);
                     }
                     if (ability.equals("H")) {
                         String who;
-                        System.out.print("Who would you like to heal? ((W)anobi, (A)kina, (" + user.getName() + ")): ");
+                        System.out.print("Who would you like to heal? ((W)anobi, (A)kina, (" + forceUsers.get(0).getName() + ")): ");
                         who = scan.nextLine();
                         if (who.equals("W")) {
-                            user.forceHeal(user.getMidichlorianCount(), wanobi);
+                            forceUsers.get(i).forceHeal(forceUsers.get(i).getMidichlorianCount(), forceUsers.get(1));
                         }
                         if (who.equals("A")) {
-                            user.forceHeal(user.getMidichlorianCount(), akina);
+                            forceUsers.get(i).forceHeal(forceUsers.get(i).getMidichlorianCount(), forceUsers.get(2));
                         }
-                        if (who.equals(user.getName())) {
-                            user.forceHeal(user.getMidichlorianCount(), user);
+                        if (who.equals(forceUsers.get(0).getName())) {
+                            forceUsers.get(i).forceHeal(forceUsers.get(i).getMidichlorianCount(), forceUsers.get(0));
                         }
                     }
                     if (ability.equals("T")) {
-                        user.saberTwirl(diosius);
+                        forceUsers.get(i).saberTwirl(diosius);
                     }
                 }
                 if (target.equals("R")) {
@@ -109,27 +114,27 @@ public class Game {
                     System.out.print("Choose your ability (force(P)ush, saber(S)lash, force(H)eal, saber(T)wirl): ");
                     ability = scan.nextLine();
                     if (ability.equals("P")) {
-                        user.forcePush(resskuven);
+                        forceUsers.get(i).forcePush(resskuven);
                     }
                     if (ability.equals("S")) {
-                        user.saberSlash(resskuven);
+                        forceUsers.get(i).saberSlash(resskuven);
                     }
                     if (ability.equals("H")) {
                         String who;
-                        System.out.print("Who would you like to heal? ((W)anobi, (A)kina, (" + user.getName() + ")): ");
+                        System.out.print("Who would you like to heal? ((W)anobi, (A)kina, (" + forceUsers.get(0).getName() + ")): ");
                         who = scan.nextLine();
                         if (who.equals("W")) {
-                            user.forceHeal(user.getMidichlorianCount(), wanobi);
+                            forceUsers.get(i).forceHeal(forceUsers.get(i).getMidichlorianCount(), forceUsers.get(1));
                         }
                         if (who.equals("A")) {
-                            user.forceHeal(user.getMidichlorianCount(), akina);
+                            forceUsers.get(i).forceHeal(forceUsers.get(i).getMidichlorianCount(), forceUsers.get(2));
                         }
-                        if (who.equals(user.getName())) {
-                            user.forceHeal(user.getMidichlorianCount(), user);
+                        if (who.equals(forceUsers.get(0).getName())) {
+                            forceUsers.get(i).forceHeal(forceUsers.get(i).getMidichlorianCount(), forceUsers.get(0));
                         }
                     }
                     if (ability.equals("T")) {
-                        user.saberTwirl(resskuven);
+                        forceUsers.get(i).saberTwirl(resskuven);
                     }
                 }
             }
