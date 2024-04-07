@@ -35,7 +35,7 @@ public class Game {
     }
 
     public void level1() {
-        System.out.println("");
+        System.out.println("For your first trial, you must incapacitate the three sith assassins recently found on Tatooine");
     }
 
     public void setBoss() {
