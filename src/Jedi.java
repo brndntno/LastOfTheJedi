@@ -10,7 +10,7 @@ public class Jedi extends ForceUser {
     }
 
     public void forceHeal(double midichlorianCount, ForceUser user) {
-        double heal = midichlorianCount * 0.05;
+        double heal = midichlorianCount * 0.15;
         user.setHealth(heal);
     }
 
