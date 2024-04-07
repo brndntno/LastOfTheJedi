@@ -36,6 +36,15 @@ public class Game {
 
     public void level1() {
         System.out.println("For your first trial, you must incapacitate the three sith assassins recently found on Tatooine");
+
+        ForceUser[] forceUsers = new ForceUser[5];
+        SithAssassin tentabrus = new SithAssassin("Tentabrus", 7500, 4250);
+        SithAssassin diosius = new SithAssassin("Diosius", 8500, 4000);
+        SithAssassin tresskuven = new SithAssassin("Tressku", 8000, 3500);
+        forceUsers[0] = tentabrus;
+        forceUsers[1] = diosius;
+        forceUsers[2] = tresskuven;
+
     }
 
     public void setBoss() {
