@@ -2,14 +2,13 @@ public class ForceUser {
     private String name;
     private double midichlorianCount;
     private double health;
-    private double initialHealth = health;
-    private boolean tranceState;
+    private double initialHealth;
     private boolean mindControl;
     public ForceUser(String name, double midichlorianCount, double health) {
         this.name = name;
         this.midichlorianCount = midichlorianCount;
         this.health = health;
-        this.tranceState = false;
+        this.initialHealth = health;
         this.mindControl = false;
     }
 

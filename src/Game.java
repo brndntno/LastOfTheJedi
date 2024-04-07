@@ -138,9 +138,9 @@ public class Game {
                     }
                 }
             }
-            for (int i = 0; i < enemyTeam.size(); i++) {
-                enemyTeam.get(i).saberSlash(forceUsers.get(i));
-            }
+            enemyTeam.get(0).saberSlash(forceUsers.get(0));
+            enemyTeam.get(1).saberSlash(forceUsers.get(1));
+            enemyTeam.get(2).saberSlash(forceUsers.get(2));
             for (int i = 0; i < team1.size(); i++) {
                 if (team1.get(i).getHealth() <= 0) {
                     team1.remove(i);
