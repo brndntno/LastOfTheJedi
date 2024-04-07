@@ -55,7 +55,7 @@ public class Game {
         System.out.println("Your mission will be to overcome the forces of evil that ravage this galaxy.\nYou must defeat " + finalBoss.getName() + ".");
         team1 = new ArrayList<>();
         team1.add(user);
-        System.out.println("You will be assigned with a group of five Jedi, in which YOU SHALL BE DA LEADER!");
+        System.out.println("You will be assigned in a group of three Jedi, in which YOU SHALL BE DA LEADER!");
     }
     public void setBoss() {
         if (isJedi) {
