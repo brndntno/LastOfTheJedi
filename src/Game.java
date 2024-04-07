@@ -138,9 +138,9 @@ public class Game {
                     }
                 }
             }
-            enemyTeam.get(0).saberSlash(forceUsers.get(0));
-            enemyTeam.get(1).saberSlash(forceUsers.get(1));
-            enemyTeam.get(2).saberSlash(forceUsers.get(2));
+            for (int i = 0; i < enemyTeam.size(); i++) {
+                enemyTeam.get(i).saberSlash(forceUsers.get(i));
+            }
             for (int i = 0; i < forceUsers.size(); i++) {
                 if (forceUsers.get(i).getHealth() <= 0) {
                     System.out.println(forceUsers.get(i).getName() + " health: " + forceUsers.get(i).getHealth() +
