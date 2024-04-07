@@ -7,6 +7,6 @@ public class HelloDolly {
         System.out.println("i refuse");
         System.out.println("a");
         System.out.println("while");
-        System.out.println("b");
+        System.out.println("he fixed smth");
     }
 }
