@@ -45,9 +45,9 @@ public class Game {
         SithAssassin tentabrus = new SithAssassin("Tentabrus", 7500, 4250);
         SithAssassin diosius = new SithAssassin("Diosius", 8500, 4000);
         SithAssassin resskuven = new SithAssassin("Resskuven", 8000, 3500);
-        enemyTeam.set(0, tentabrus);
-        enemyTeam.set(1, diosius);
-        enemyTeam.set(2, resskuven);
+        enemyTeam.add(tentabrus);
+        enemyTeam.add(diosius);
+        enemyTeam.add(resskuven);
         while (enemyTeam.size() > 0) {
             for (int i = 0; i < forceUsers.size(); i++) {
                 String target;
