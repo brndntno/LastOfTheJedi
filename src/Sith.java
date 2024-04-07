@@ -6,6 +6,7 @@ public class Sith extends ForceUser{
     }
 
     public void enrage() {
-        ;
+        setMidichlorianCount(getMidichlorianCount() * 2);
+        setHealth(getInitialHealth() * 0.75);
     }
 }
