@@ -5,13 +5,12 @@ public class Game {
     private Scanner scan;
     private String name;
     private ForceUser finalBoss;
-    private boolean isJedi;
     private ArrayList<ForceUser> team1;
+    private ArrayList<ForceUser> enemyTeam;
     public Game() {
         scan = new Scanner(System.in);
         setBoss();
         greetings();
-
     }
 
     public void greetings() {
@@ -34,6 +33,11 @@ public class Game {
         team1.add(wanobi);
         team1.add(akina);
     }
+
+    public void level1() {
+        System.out.println("");
+    }
+
     public void setBoss() {
         if (Math.random() < 0.5) {
             finalBoss = new CountDooku("Count Dooku", 30000, 15000);
