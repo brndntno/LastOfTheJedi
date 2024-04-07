@@ -28,6 +28,9 @@ public class ForceUser {
     public void setHealth(double add) {
         health += add;
     }
+    public void setMidichlorianCount(double num) {
+        this.midichlorianCount = num;
+    }
     public void setMindControl(boolean mindControl) {
         this.mindControl = mindControl;
     }
