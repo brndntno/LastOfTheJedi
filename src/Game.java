@@ -139,7 +139,7 @@ public class Game {
                 }
             }
             for (int i = 0; i < enemyTeam.size(); i++) {
-                enemyTeam.get(i).saberSlash(team1.get(i));
+                enemyTeam.get(i).saberSlash(forceUsers.get(i));
             }
             for (int i = 0; i < team1.size(); i++) {
                 if (team1.get(i).getHealth() <= 0) {
