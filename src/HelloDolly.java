@@ -9,6 +9,6 @@ public class HelloDolly {
         System.out.println("while");
         System.out.println("he fixed smth");
         System.out.println("wow");
-        System.out.println("he fixed");
+        System.out.println("he fixed it");
     }
 }
