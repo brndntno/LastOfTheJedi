@@ -141,13 +141,14 @@ public class Game {
             enemyTeam.get(0).saberSlash(forceUsers.get(0));
             enemyTeam.get(1).saberSlash(forceUsers.get(1));
             enemyTeam.get(2).saberSlash(forceUsers.get(2));
-            for (int i = 0; i < team1.size(); i++) {
-                if (team1.get(i).getHealth() <= 0) {
-                    System.out.println(team1.get(i).getName() + " health: " + team1.get(i).getHealth() +
-                            "\n" + team1.get(i).getName() + " has fallen. ");
-                    team1.remove(i);
+            for (int i = 0; i < forceUsers.size(); i++) {
+                if (forceUsers.get(i).getHealth() <= 0) {
+                    System.out.println(forceUsers.get(i).getName() + " health: " + forceUsers.get(i).getHealth() +
+                            "\n" + forceUsers.get(i).getName() + " has fallen. ");
+                    forceUsers.remove(i);
+                    i--;
                 } else {
-                    System.out.println(team1.get(i).getName() + " health: " + team1.get(i).getHealth());
+                    System.out.println(forceUsers.get(i).getName() + " health: " + forceUsers.get(i).getHealth());
                 }
             }
             for (int i = 0; i < enemyTeam.size(); i++) {
@@ -155,6 +156,7 @@ public class Game {
                     System.out.println(enemyTeam.get(i).getName() + " health: " + enemyTeam.get(i).getHealth() +
                             "\n" + enemyTeam.get(i).getName() + " has been defeated. ");
                     enemyTeam.remove(i);
+                    i--;
                 } else {
                     System.out.println(enemyTeam.get(i).getName() + " health: " + enemyTeam.get(i).getHealth());
                 }
