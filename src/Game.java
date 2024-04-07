@@ -40,10 +40,10 @@ public class Game {
         ForceUser[] forceUsers = new ForceUser[5];
         SithAssassin tentabrus = new SithAssassin("Tentabrus", 7500, 4250);
         SithAssassin diosius = new SithAssassin("Diosius", 8500, 4000);
-        SithAssassin tressku = new SithAssassin("Tressku", 8000, 3500);
+        SithAssassin tresskuven = new SithAssassin("Tressku", 8000, 3500);
         forceUsers[0] = tentabrus;
         forceUsers[1] = diosius;
-        forceUsers[2] = tressku;
+        forceUsers[2] = tresskuven;
 
     }
 
