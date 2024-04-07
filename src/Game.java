@@ -5,6 +5,7 @@ public class Game {
     private Scanner scan;
     private String name;
     private ForceUser finalBoss;
+    private boolean isJedi;
     private ArrayList<ForceUser> team1;
     public Game() {
         scan = new Scanner(System.in);
