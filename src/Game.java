@@ -45,6 +45,8 @@ public class Game {
         forceUsers[1] = diosius;
         forceUsers[2] = tresskuven;
 
+
+
     }
 
     public void setBoss() {
