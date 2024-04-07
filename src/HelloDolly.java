@@ -6,5 +6,6 @@ public class HelloDolly {
         System.out.println("thank you");
         System.out.println("i refuse");
         System.out.println("a");
+        System.out.println("b");
     }
 }
