@@ -20,7 +20,7 @@ public class Game {
 
     public void greetings() {
         String JediOrSith = "";
-        System.out.println("Hello young padawan! Please state your name: ");
+        System.out.print("Hello young padawan! Please state your name: ");
         name = scan.nextLine();
         JediPadawan user = new JediPadawan(name, 10000, 5000);
         jediStory(user);
@@ -64,6 +64,7 @@ public class Game {
         forceUsers3.add(yoda);
         System.out.println("You and your friends have grown greatly in strength. Master Yoda will now assist in your final trial. ");
         level3(forceUsers3);
+        System.out.println("You, alongside your great friends and allies, have managed to fell some of the galaxy's greatest threats. The Jedi Order is forever grateful for your valor Master " + user.getName());
     }
 
 
@@ -78,7 +79,7 @@ public class Game {
         enemyTeam.add(tentabrus);
         enemyTeam.add(diosius);
         enemyTeam.add(resskuven);
-        while (enemyTeam.size() > 0) {
+        while (someoneAlive(enemyTeam)) {
             for (int i = 0; i < forceUsers.size(); i++) {
                 String target;
                 System.out.print("Choose your target ((T)entabrus, (D)iosius, (R)esskuven): ");
@@ -113,7 +114,7 @@ public class Game {
         enemyTeam2.add(haunte);
         enemyTeam2.add(maul);
 
-        while (enemyTeam2.size() > 0) {
+        while (someoneAlive2(enemyTeam2)) {
             for (int i = 0; i < forceUsers.size(); i++) {
                 String target;
                 System.out.print("Choose your target ((S)pectris, (N)afariouz, (H)aunte, (M)aul): ");
@@ -146,7 +147,7 @@ public class Game {
     }
     public void level3(ArrayList<JediMaster> forceUsers) {
 
-        System.out.println("For your third trial, you must incapacitate the three sith assassins recently found on Tatooine");
+        System.out.println("For your third trial, you must defeat Darth Sidious and 4 most loyal disciples. ");
 
         enemyTeam3 = new ArrayList<SithMaster>();
         SithMaster mystere = new SithMaster("Mystere", 7500, 5000);
@@ -158,7 +159,7 @@ public class Game {
         enemyTeam3.add(skexous);
         enemyTeam3.add(maul2);
         enemyTeam3.add(giusplei);
-        while (enemyTeam3.size() > 0) {
+        while (someoneAlive3(enemyTeam3)) {
             for (int i = 0; i < forceUsers.size(); i++) {
                 String target;
                 System.out.print("Choose your target ((M)ystere, (" + finalBoss.getName() + "), (S)kexous, (Ma)ul, (G)iusPlei): ");
@@ -317,9 +318,9 @@ public class Game {
         for (int r = 0; r < allPresent.length; r++) {
             for (int c = 0; c < allPresent[r].length; c++) {
                 if (allPresent[r][c].getHealth() <= 0) {
+                    allPresent[r][c] = new ForceUser(allPresent[r][c].getName(), 0, 0);
                     System.out.println(allPresent[r][c].getName() + " health: " + allPresent[r][c].getHealth() +
                             "\n" + allPresent[r][c].getName() + " has fallen. ");
-                    allPresent[r][c] = new ForceUser("Dead", 0, 0);
                 } else {
                     System.out.println(allPresent[r][c].getName() + " health: " + allPresent[r][c].getHealth());
                 }
@@ -348,7 +349,7 @@ public class Game {
     }
 
     public void afterMath3() {
-        ForceUser[][] allPresent = new ForceUser[2][3];
+        ForceUser[][] allPresent = new ForceUser[2][5];
         for (int i = 0; i < forceUsers3.size(); i++) {
             allPresent[0][i] = forceUsers3.get(i);
         }
@@ -373,5 +374,32 @@ public class Game {
         } else {
             finalBoss = new DarthSidious("Darth Sidious", 40000, 20000);
         }
+    }
+
+    public boolean someoneAlive(ArrayList<SithAssassin> sithAssassins) {
+        for (int i = 0; i < sithAssassins.size(); i++) {
+            if (sithAssassins.get(i).getHealth() > 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean someoneAlive2(ArrayList<SithApprentice> sithApprentices) {
+        for (int i = 0; i < sithApprentices.size(); i++) {
+            if (sithApprentices.get(i).getHealth() > 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean someoneAlive3(ArrayList<SithMaster> sithMasters) {
+        for (int i = 0; i < sithMasters.size(); i++) {
+            if (sithMasters.get(i).getHealth() > 0) {
+                return true;
+            }
+        }
+        return false;
     }
 }
