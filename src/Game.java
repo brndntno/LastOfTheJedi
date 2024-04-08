@@ -7,6 +7,9 @@ public class Game {
     private ForceUser finalBoss;
     private ArrayList<JediPadawan> forceUsers;
     private ArrayList<ForceUser> enemyTeam;
+    private ArrayList<SithApprentice> enemyTeam2;
+    private ArrayList<SithMaster> enemyTeam3;
+
     public Game() {
         scan = new Scanner(System.in);
         setBoss();
@@ -77,15 +80,15 @@ public class Game {
 
         System.out.println("For your second trial, you must incapacitate the four sith zealots recently found on Naboo");
 
-        enemyTeam = new ArrayList<ForceUser>();
-        SithApprentice spectris = new SithApprentice("Spectris", 7500, 4250);
-        SithApprentice nafariouz = new SithApprentice("Nafariouz", 8500, 4000);
-        SithApprentice haunte = new SithApprentice("Haunte", 8000, 3500);
-        enemyTeam.add(spectris);
-        enemyTeam.add(nafariouz);
-        enemyTeam.add(haunte);
+        enemyTeam2 = new ArrayList<SithApprentice>();
+        SithApprentice spectris = new SithApprentice("Spectris", 8000, 4500);
+        SithApprentice nafariouz = new SithApprentice("Nafariouz", 8750, 4250);
+        SithApprentice haunte = new SithApprentice("Haunte", 8250, 3750);
+        enemyTeam2.add(spectris);
+        enemyTeam2.add(nafariouz);
+        enemyTeam2.add(haunte);
 
-        while (enemyTeam.size() > 0) {
+        while (enemyTeam2.size() > 0) {
             for (int i = 0; i < forceUsers.size(); i++) {
                 String target;
                 System.out.print("Choose your target ((S)pectris, (N)afariouz, (H)aunte): ");
@@ -100,8 +103,15 @@ public class Game {
                     attacking(haunte, i);
                 }
             }
-            for (int i = 0; i < enemyTeam.size(); i++) {
-                enemyTeam.get(i).saberSlash(forceUsers.get(i));
+            for (int i = 0; i < enemyTeam2.size(); i++) {
+                double num = Math.random();
+                if (num > 0.5) {
+                    enemyTeam2.get(i).forceLightning(forceUsers.get(i));
+                } else if (num > 0.25) {
+                    enemyTeam2.get(i).saberSlash(forceUsers.get(i));
+                } else {
+                    enemyTeam2.get(i).forceChoke(forceUsers.get(i));
+                }
             }
             afterMath();
         }
