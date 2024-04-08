@@ -309,6 +309,21 @@ public class Game {
     public void afterMath() {
         ForceUser[][] allPresent = new ForceUser[2][3];
         for (int i = 0; i < forceUsers.size(); i++) {
+            allPresent[0][i] = forceUsers.get(i);
+        }
+        for (int i = 0; i < enemyTeam.size(); i++) {
+            allPresent[1][i] = enemyTeam.get(i);
+        }
+        for (int r = 0; r < allPresent.length; r++) {
+            for (int c = 0; c < allPresent[r].length; c++) {
+                if (allPresent[r][c].getHealth() <= 0) {
+                    System.out.println(allPresent[r][c].getName() + " health: " + allPresent[r][c].getHealth() +
+                            "\n" + allPresent[r][c].getName() + " has fallen. ");
+                    allPresent[r][c] = new ForceUser("Dead", 0, 0);
+                }
+            }
+        }
+        for (int i = 0; i < forceUsers.size(); i++) {
             if (forceUsers.get(i).getHealth() <= 0) {
                 System.out.println(forceUsers.get(i).getName() + " health: " + forceUsers.get(i).getHealth() +
                         "\n" + forceUsers.get(i).getName() + " has fallen. ");
@@ -353,14 +368,14 @@ public class Game {
     }
 
     public void afterMath3() {
-        for (int i = 0; i < forceUsers.size(); i++) {
-            if (forceUsers.get(i).getHealth() <= 0) {
-                System.out.println(forceUsers.get(i).getName() + " health: " + forceUsers.get(i).getHealth() +
-                        "\n" + forceUsers.get(i).getName() + " has fallen. ");
-                forceUsers.remove(i);
+        for (int i = 0; i < forceUsers3.size(); i++) {
+            if (forceUsers3.get(i).getHealth() <= 0) {
+                System.out.println(forceUsers3.get(i).getName() + " health: " + forceUsers3.get(i).getHealth() +
+                        "\n" + forceUsers3.get(i).getName() + " has fallen. ");
+                forceUsers3.remove(i);
                 i--;
             } else {
-                System.out.println(forceUsers.get(i).getName() + " health: " + forceUsers.get(i).getHealth());
+                System.out.println(forceUsers3.get(i).getName() + " health: " + forceUsers3.get(i).getHealth());
             }
         }
         for (int i = 0; i < enemyTeam3.size(); i++) {
