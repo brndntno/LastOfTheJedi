@@ -64,7 +64,15 @@ public class Game {
         forceUsers3.add(yoda);
         System.out.println("You and your friends have grown greatly in strength. Master Yoda will now assist in your final trial. ");
         level3(forceUsers3);
-        System.out.println("Congratulations, you, alongside your great friends and allies, have managed to fell some of the galaxy's greatest threats. The Jedi Order is forever grateful for your valor Master " + user.getName());
+        JediMaster[] team = new JediMaster[5];
+        for (int i = 0; i < forceUsers3.size(); i++) {
+            team[i] = forceUsers3.get(i);
+        }
+        System.out.println("Congratulations, you, alongside your great friends and allies\n");
+        for (int i = 0; i < team.length; i++) {
+            System.out.println(team[i].getName() + " ");
+        }
+        System.out.println("\nhave managed to fell some of the galaxy's greatest threats. The Jedi Order is forever grateful for your valor Master " + user.getName() + ".");
     }
 
 
