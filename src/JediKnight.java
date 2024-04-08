@@ -10,10 +10,13 @@ public class JediKnight extends JediPadawan {
 
     @Override
     public void saberTwirl(ForceUser user){
-        if (getBattleMeditation() < 5) {
+        if (getBattleMeditation() < 1) {
+            super.saberTwirl(user);
             super.saberTwirl(user);
             battleMeditation++;
         } else {
+            super.saberTwirl(user);
+            super.saberTwirl(user);
             super.saberTwirl(user);
             super.saberTwirl(user);
         }

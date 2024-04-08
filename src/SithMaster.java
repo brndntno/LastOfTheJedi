@@ -1,9 +1,13 @@
 public class SithMaster extends SithApprentice{
-    public SithMaster (String name, int midichlorianCount, double health) {
+    public SithMaster (String name, double midichlorianCount, double health) {
         super(name, midichlorianCount, health);
     }
 
-    public void mindControl(ForceUser user) {
-        user.setMindControl(true);
+    public void forceRepulse(ForceUser user) {
+        if (user.getHealth() <= user.getInitialHealth() * 0.25) {
+            user.setHealth(-user.getHealth());
+        } else {
+            user.setHealth(-0.5 * user.getHealth());
+        }
     }
 }

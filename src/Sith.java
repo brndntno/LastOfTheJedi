@@ -1,5 +1,5 @@
 public class Sith extends ForceUser{
-    public Sith(String name, int midichlorianCount, double health) {
+    public Sith(String name, double midichlorianCount, double health) {
         super(name, midichlorianCount, health);
     }
 

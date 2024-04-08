@@ -17,15 +17,10 @@ public class JediMaster extends JediKnight {
         }
     }
 
-    public void fullHeal(int numTurns, ArrayList<ForceUser> users) {
-        if (numTurns == 7) {
-            for (int i = 0; i < users.size(); i++) {
-                users.get(i).setHealth(getInitialHealth() - getHealth());
-            }
+    public void forceWave(ArrayList<ForceUser> users) {
+        for (int i = 0; i < users.size(); i++) {
+            users.get(i).setHealth(-users.get(i).getInitialHealth() * 0.1);
         }
     }
 
-    public void poop() {
-        System.out.println("poop");
-    }
 }

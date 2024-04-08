@@ -1,5 +1,5 @@
 public class SithApprentice extends SithAssassin{
-    public SithApprentice(String name, int midichlorianCount, double health) {
+    public SithApprentice(String name, double  midichlorianCount, double health) {
         super(name, midichlorianCount, health);
 
     }

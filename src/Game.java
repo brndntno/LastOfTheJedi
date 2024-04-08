@@ -4,9 +4,11 @@ import java.util.Scanner;
 public class Game {
     private Scanner scan;
     private String name;
-    private ForceUser finalBoss;
+    private SithMaster finalBoss;
     private ArrayList<JediPadawan> forceUsers;
-    private ArrayList<ForceUser> enemyTeam;
+    private ArrayList<JediKnight> forceUsers2;
+    private ArrayList<JediMaster> forceUsers3;
+    private ArrayList<SithAssassin> enemyTeam;
     private ArrayList<SithApprentice> enemyTeam2;
     private ArrayList<SithMaster> enemyTeam3;
 
@@ -35,11 +37,31 @@ public class Game {
         JediPadawan akina = new JediPadawan("Akina", 8500, 4500);
         forceUsers.add(wanobi);
         forceUsers.add(akina);
-
         level1(forceUsers);
         System.out.println("Congratulations, you have overcome your first trial.\nThe second trial awaits you...");
-        level2(forceUsers);
+        forceUsers2 = new ArrayList<>();
+        JediKnight wanobi2 = new JediKnight("Wanobi", 7500, 4000);
+        JediKnight akina2 = new JediKnight("Akina", 8500, 4500);
+        JediKnight user2 = new JediKnight(name, 10000, 5000);
+        JediKnight anakinSkywalker = new JediKnight("Anakin", 12000, 6000);
+        forceUsers2.add(wanobi2);
+        forceUsers2.add(akina2);
+        forceUsers2.add(user2);
+        forceUsers2.add(anakinSkywalker);
+        System.out.println("Jedi Knight Anakin Skywalker has joined your team");
+        level2(forceUsers2);
         System.out.println("It seems that not even the second trial can stop you, however you still have one more trial.\nThe final trial awaits you...");
+        forceUsers3 = new ArrayList<>();
+        JediMaster wanobi3 = new JediMaster("Wanobi", 9000, 4250);
+        JediMaster akina3 = new JediMaster("Akina", 10000, 4750);
+        JediMaster user3 = new JediMaster(name, 12000, 6000);
+        JediMaster anakinSkywalker2 = new JediMaster("Anakin", 12000, 6000);
+
+        forceUsers2.add(wanobi2);
+        forceUsers2.add(akina2);
+        forceUsers2.add(user2);
+        forceUsers2.add(anakinSkywalker);
+        System.out.println("Jedi Knight Anakin Skywalker has joined your team");
         level3(forceUsers);
     }
 
@@ -76,7 +98,7 @@ public class Game {
             afterMath();
         }
     }
-    public void level2(ArrayList<JediPadawan> forceUsers) {
+    public void level2(ArrayList<JediKnight> forceUsers) {
 
         System.out.println("For your second trial, you must incapacitate the four sith zealots recently found on Naboo");
 
@@ -84,14 +106,16 @@ public class Game {
         SithApprentice spectris = new SithApprentice("Spectris", 8000, 4500);
         SithApprentice nafariouz = new SithApprentice("Nafariouz", 8750, 4250);
         SithApprentice haunte = new SithApprentice("Haunte", 8250, 3750);
+        SithApprentice maul = new SithApprentice("Maul", 12000, 4750);
         enemyTeam2.add(spectris);
         enemyTeam2.add(nafariouz);
         enemyTeam2.add(haunte);
+        enemyTeam2.add(maul);
 
         while (enemyTeam2.size() > 0) {
             for (int i = 0; i < forceUsers.size(); i++) {
                 String target;
-                System.out.print("Choose your target ((S)pectris, (N)afariouz, (H)aunte): ");
+                System.out.print("Choose your target ((S)pectris, (N)afariouz, (H)aunte, (M)aul): ");
                 target = scan.nextLine();
                 if (target.equals("S")) {
                     attacking(spectris, i);
@@ -101,6 +125,9 @@ public class Game {
                 }
                 if (target.equals("H")) {
                     attacking(haunte, i);
+                }
+                if (target.equals("M")) {
+                    attacking(maul, i);
                 }
             }
             for (int i = 0; i < enemyTeam2.size(); i++) {
@@ -113,28 +140,28 @@ public class Game {
                     enemyTeam2.get(i).forceChoke(forceUsers.get(i));
                 }
             }
-            afterMath();
+            afterMath2();
         }
     }
-    public void level3(ArrayList<JediPadawan> forceUsers) {
+    public void level3(ArrayList<JediMaster> forceUsers) {
 
         System.out.println("For your third trial, you must incapacitate the three sith assassins recently found on Tatooine");
 
-        enemyTeam = new ArrayList<ForceUser>();
-        SithAssassin mystere = new SithMaster("Mystere", 7500, 4250);
-        SithAssassin skexous = new SithMaster("Skexous", 8000, 3500);
-        enemyTeam.add(mystere);
-        enemyTeam.add(finalBoss);
-        enemyTeam.add(skexous);
+        enemyTeam3 = new ArrayList<SithMaster>();
+        SithMaster mystere = new SithMaster("Mystere", 7500, 5000);
+        SithMaster skexous = new SithMaster("Skexous", 7500, 5000);
+        enemyTeam3.add(mystere);
+        enemyTeam3.add(finalBoss);
+        enemyTeam3.add(skexous);
         while (enemyTeam.size() > 0) {
             for (int i = 0; i < forceUsers.size(); i++) {
                 String target;
-                System.out.print("Choose your target ((M)ystere, (F)otris, (S)kexous): ");
+                System.out.print("Choose your target ((M)ystere, (" + finalBoss.getName() + "), (S)kexous): ");
                 target = scan.nextLine();
                 if (target.equals("M")) {
                     attacking(mystere, i);
                 }
-                if (target.equals("F")) {
+                if (target.equals(finalBoss.getName())) {
                     attacking(finalBoss, i);
                 }
                 if (target.equals("S")) {
@@ -168,7 +195,7 @@ public class Game {
 
     public void heal(int num) {
         String who;
-        System.out.print("Who would you like to heal? ((W)anobi, (A)kina, (" + forceUsers.get(0).getName() + ")): ");
+        System.out.print("Who would you like to heal? ((W)anobi, (A)kina, (" + forceUsers.get(0).getName() + "), Ana(k)in): ");
         who = scan.nextLine();
         if (who.equals("W")) {
             forceUsers.get(num).forceHeal(forceUsers.get(num).getMidichlorianCount(), forceUsers.get(1));
@@ -178,6 +205,9 @@ public class Game {
         }
         if (who.equals(forceUsers.get(0).getName())) {
             forceUsers.get(num).forceHeal(forceUsers.get(num).getMidichlorianCount(), forceUsers.get(0));
+        }
+        if (who.equals("k")) {
+            forceUsers.get(num).forceHeal(forceUsers.get(num).getMidichlorianCount(), forceUsers.get(3));
         }
     }
 
@@ -203,7 +233,51 @@ public class Game {
             }
         }
     }
+    public void afterMath2() {
+        for (int i = 0; i < forceUsers.size(); i++) {
+            if (forceUsers.get(i).getHealth() <= 0) {
+                System.out.println(forceUsers.get(i).getName() + " health: " + forceUsers.get(i).getHealth() +
+                        "\n" + forceUsers.get(i).getName() + " has fallen. ");
+                forceUsers.remove(i);
+                i--;
+            } else {
+                System.out.println(forceUsers.get(i).getName() + " health: " + forceUsers.get(i).getHealth());
+            }
+        }
+        for (int i = 0; i < enemyTeam2.size(); i++) {
+            if (enemyTeam2.get(i).getHealth() <= 0) {
+                System.out.println(enemyTeam2.get(i).getName() + " health: " + enemyTeam2.get(i).getHealth() +
+                        "\n" + enemyTeam2.get(i).getName() + " has been defeated. ");
+                enemyTeam2.remove(i);
+                i--;
+            } else {
+                System.out.println(enemyTeam2.get(i).getName() + " health: " + enemyTeam2.get(i).getHealth());
+            }
+        }
+    }
 
+    public void afterMath3() {
+        for (int i = 0; i < forceUsers.size(); i++) {
+            if (forceUsers.get(i).getHealth() <= 0) {
+                System.out.println(forceUsers.get(i).getName() + " health: " + forceUsers.get(i).getHealth() +
+                        "\n" + forceUsers.get(i).getName() + " has fallen. ");
+                forceUsers.remove(i);
+                i--;
+            } else {
+                System.out.println(forceUsers.get(i).getName() + " health: " + forceUsers.get(i).getHealth());
+            }
+        }
+        for (int i = 0; i < enemyTeam3.size(); i++) {
+            if (enemyTeam3.get(i).getHealth() <= 0) {
+                System.out.println(enemyTeam3.get(i).getName() + " health: " + enemyTeam3.get(i).getHealth() +
+                        "\n" + enemyTeam3.get(i).getName() + " has been defeated. ");
+                enemyTeam3.remove(i);
+                i--;
+            } else {
+                System.out.println(enemyTeam3.get(i).getName() + " health: " + enemyTeam3.get(i).getHealth());
+            }
+        }
+    }
     public void setBoss() {
         if (Math.random() < 0.5) {
             finalBoss = new CountDooku("Count Dooku", 30000, 15000);
