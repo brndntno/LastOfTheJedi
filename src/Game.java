@@ -72,7 +72,7 @@ public class Game {
     }
     public void level2(ArrayList<JediPadawan> forceUsers) {
 
-        System.out.println("For your second trial, you must incapacitate the three sith assassins recently found on Tatooine");
+        System.out.println("For your second trial, you must incapacitate the four sith zealots recently found on Naboo");
 
         enemyTeam = new ArrayList<ForceUser>();
         SithAssassin spectris = new SithAssassin("Spectris", 7500, 4250);
