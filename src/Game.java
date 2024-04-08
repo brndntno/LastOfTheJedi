@@ -45,7 +45,7 @@ public class Game {
 
         System.out.println("For your first trial, you must incapacitate the three sith assassins recently found on Tatooine");
 
-        enemyTeam = new ArrayList<ForceUser>();
+        enemyTeam = new ArrayList<>();
         SithAssassin tentabrus = new SithAssassin("Tentabrus", 7500, 4250);
         SithAssassin diosius = new SithAssassin("Diosius", 8500, 4000);
         SithAssassin resskuven = new SithAssassin("Resskuven", 8000, 3500);
@@ -67,6 +67,9 @@ public class Game {
                     attacking(resskuven, i);
                 }
             }
+            for (int i = 0; i < enemyTeam.size(); i++) {
+                enemyTeam.get(i).saberSlash(forceUsers.get(i));
+            }
             afterMath();
         }
     }
@@ -75,9 +78,9 @@ public class Game {
         System.out.println("For your second trial, you must incapacitate the four sith zealots recently found on Naboo");
 
         enemyTeam = new ArrayList<ForceUser>();
-        SithAssassin spectris = new SithAssassin("Spectris", 7500, 4250);
-        SithAssassin nafariouz = new SithAssassin("Nafariouz", 8500, 4000);
-        SithAssassin haunte = new SithAssassin("Haunte", 8000, 3500);
+        SithApprentice spectris = new SithApprentice("Spectris", 7500, 4250);
+        SithApprentice nafariouz = new SithApprentice("Nafariouz", 8500, 4000);
+        SithApprentice haunte = new SithApprentice("Haunte", 8000, 3500);
         enemyTeam.add(spectris);
         enemyTeam.add(nafariouz);
         enemyTeam.add(haunte);
@@ -97,6 +100,9 @@ public class Game {
                     attacking(haunte, i);
                 }
             }
+            for (int i = 0; i < enemyTeam.size(); i++) {
+                enemyTeam.get(i).saberSlash(forceUsers.get(i));
+            }
             afterMath();
         }
     }
@@ -105,11 +111,10 @@ public class Game {
         System.out.println("For your third trial, you must incapacitate the three sith assassins recently found on Tatooine");
 
         enemyTeam = new ArrayList<ForceUser>();
-        SithAssassin mystere = new SithAssassin("Mystere", 7500, 4250);
-        SithAssassin fotris = new SithAssassin("Fotris", 8500, 4000);
-        SithAssassin skexous = new SithAssassin("Skexous", 8000, 3500);
+        SithAssassin mystere = new SithMaster("Mystere", 7500, 4250);
+        SithAssassin skexous = new SithMaster("Skexous", 8000, 3500);
         enemyTeam.add(mystere);
-        enemyTeam.add(fotris);
+        enemyTeam.add(finalBoss);
         enemyTeam.add(skexous);
         while (enemyTeam.size() > 0) {
             for (int i = 0; i < forceUsers.size(); i++) {
@@ -120,11 +125,14 @@ public class Game {
                     attacking(mystere, i);
                 }
                 if (target.equals("F")) {
-                    attacking(fotris, i);
+                    attacking(finalBoss, i);
                 }
                 if (target.equals("S")) {
                     attacking(skexous, i);
                 }
+            }
+            for (int i = 0; i < enemyTeam.size(); i++) {
+                enemyTeam.get(i).saberSlash(forceUsers.get(i));
             }
             afterMath();
         }
@@ -164,9 +172,6 @@ public class Game {
     }
 
     public void afterMath() {
-        for (int i = 0; i < enemyTeam.size(); i++) {
-            enemyTeam.get(i).saberSlash(forceUsers.get(i));
-        }
         for (int i = 0; i < forceUsers.size(); i++) {
             if (forceUsers.get(i).getHealth() <= 0) {
                 System.out.println(forceUsers.get(i).getName() + " health: " + forceUsers.get(i).getHealth() +
