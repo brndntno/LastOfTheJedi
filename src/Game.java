@@ -64,7 +64,7 @@ public class Game {
         forceUsers3.add(yoda);
         System.out.println("You and your friends have grown greatly in strength. Master Yoda will now assist in your final trial. ");
         level3(forceUsers3);
-        System.out.println("You, alongside your great friends and allies, have managed to fell some of the galaxy's greatest threats. The Jedi Order is forever grateful for your valor Master " + user.getName());
+        System.out.println("Congratulations, you, alongside your great friends and allies, have managed to fell some of the galaxy's greatest threats. The Jedi Order is forever grateful for your valor Master " + user.getName());
     }
 
 
@@ -147,7 +147,7 @@ public class Game {
     }
     public void level3(ArrayList<JediMaster> forceUsers) {
 
-        System.out.println("For your third trial, you must defeat Darth Sidious and 4 most loyal disciples. ");
+        System.out.println("For your third trial, you must defeat Darth Sidious and his four most loyal disciples on Coruscant. ");
 
         enemyTeam3 = new ArrayList<SithMaster>();
         SithMaster mystere = new SithMaster("Mystere", 7500, 5000);
