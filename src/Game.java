@@ -320,72 +320,50 @@ public class Game {
                     System.out.println(allPresent[r][c].getName() + " health: " + allPresent[r][c].getHealth() +
                             "\n" + allPresent[r][c].getName() + " has fallen. ");
                     allPresent[r][c] = new ForceUser("Dead", 0, 0);
+                } else {
+                    System.out.println(allPresent[r][c].getName() + " health: " + allPresent[r][c].getHealth());
                 }
-            }
-        }
-        for (int i = 0; i < forceUsers.size(); i++) {
-            if (forceUsers.get(i).getHealth() <= 0) {
-                System.out.println(forceUsers.get(i).getName() + " health: " + forceUsers.get(i).getHealth() +
-                        "\n" + forceUsers.get(i).getName() + " has fallen. ");
-                forceUsers.remove(i);
-                i--;
-            } else {
-                System.out.println(forceUsers.get(i).getName() + " health: " + forceUsers.get(i).getHealth());
-            }
-        }
-        for (int i = 0; i < enemyTeam.size(); i++) {
-            if (enemyTeam.get(i).getHealth() <= 0) {
-                System.out.println(enemyTeam.get(i).getName() + " health: " + enemyTeam.get(i).getHealth() +
-                        "\n" + enemyTeam.get(i).getName() + " has been defeated. ");
-                enemyTeam.remove(i);
-                i--;
-            } else {
-                System.out.println(enemyTeam.get(i).getName() + " health: " + enemyTeam.get(i).getHealth());
             }
         }
     }
     public void afterMath2() {
-        for (int i = 0; i < forceUsers.size(); i++) {
-            if (forceUsers.get(i).getHealth() <= 0) {
-                System.out.println(forceUsers.get(i).getName() + " health: " + forceUsers.get(i).getHealth() +
-                        "\n" + forceUsers.get(i).getName() + " has fallen. ");
-                forceUsers.remove(i);
-                i--;
-            } else {
-                System.out.println(forceUsers.get(i).getName() + " health: " + forceUsers.get(i).getHealth());
-            }
+        ForceUser[][] allPresent = new ForceUser[2][4];
+        for (int i = 0; i < forceUsers2.size(); i++) {
+            allPresent[0][i] = forceUsers2.get(i);
         }
         for (int i = 0; i < enemyTeam2.size(); i++) {
-            if (enemyTeam2.get(i).getHealth() <= 0) {
-                System.out.println(enemyTeam2.get(i).getName() + " health: " + enemyTeam2.get(i).getHealth() +
-                        "\n" + enemyTeam2.get(i).getName() + " has been defeated. ");
-                enemyTeam2.remove(i);
-                i--;
-            } else {
-                System.out.println(enemyTeam2.get(i).getName() + " health: " + enemyTeam2.get(i).getHealth());
+            allPresent[1][i] = enemyTeam2.get(i);
+        }
+        for (int r = 0; r < allPresent.length; r++) {
+            for (int c = 0; c < allPresent[r].length; c++) {
+                if (allPresent[r][c].getHealth() <= 0) {
+                    System.out.println(allPresent[r][c].getName() + " health: " + allPresent[r][c].getHealth() +
+                            "\n" + allPresent[r][c].getName() + " has fallen. ");
+                    allPresent[r][c] = new ForceUser("Dead", 0, 0);
+                } else {
+                    System.out.println(allPresent[r][c].getName() + " health: " + allPresent[r][c].getHealth());
+                }
             }
         }
     }
 
     public void afterMath3() {
+        ForceUser[][] allPresent = new ForceUser[2][3];
         for (int i = 0; i < forceUsers3.size(); i++) {
-            if (forceUsers3.get(i).getHealth() <= 0) {
-                System.out.println(forceUsers3.get(i).getName() + " health: " + forceUsers3.get(i).getHealth() +
-                        "\n" + forceUsers3.get(i).getName() + " has fallen. ");
-                forceUsers3.remove(i);
-                i--;
-            } else {
-                System.out.println(forceUsers3.get(i).getName() + " health: " + forceUsers3.get(i).getHealth());
-            }
+            allPresent[0][i] = forceUsers3.get(i);
         }
         for (int i = 0; i < enemyTeam3.size(); i++) {
-            if (enemyTeam3.get(i).getHealth() <= 0) {
-                System.out.println(enemyTeam3.get(i).getName() + " health: " + enemyTeam3.get(i).getHealth() +
-                        "\n" + enemyTeam3.get(i).getName() + " has been defeated. ");
-                enemyTeam3.remove(i);
-                i--;
-            } else {
-                System.out.println(enemyTeam3.get(i).getName() + " health: " + enemyTeam3.get(i).getHealth());
+            allPresent[1][i] = enemyTeam3.get(i);
+        }
+        for (int r = 0; r < allPresent.length; r++) {
+            for (int c = 0; c < allPresent[r].length; c++) {
+                if (allPresent[r][c].getHealth() <= 0) {
+                    System.out.println(allPresent[r][c].getName() + " health: " + allPresent[r][c].getHealth() +
+                            "\n" + allPresent[r][c].getName() + " has fallen. ");
+                    allPresent[r][c] = new ForceUser("Dead", 0, 0);
+                } else {
+                    System.out.println(allPresent[r][c].getName() + " health: " + allPresent[r][c].getHealth());
+                }
             }
         }
     }
