@@ -56,13 +56,14 @@ public class Game {
         JediMaster akina3 = new JediMaster("Akina", 10000, 4750);
         JediMaster user3 = new JediMaster(name, 12000, 6000);
         JediMaster anakinSkywalker2 = new JediMaster("Anakin", 12000, 6000);
-
-        forceUsers2.add(wanobi2);
-        forceUsers2.add(akina2);
-        forceUsers2.add(user2);
-        forceUsers2.add(anakinSkywalker);
-        System.out.println("Jedi Knight Anakin Skywalker has joined your team");
-        level3(forceUsers);
+        JediMaster yoda = new JediMaster("Master Yoda", 35000, 10000);
+        forceUsers3.add(wanobi3);
+        forceUsers3.add(akina3);
+        forceUsers3.add(user3);
+        forceUsers3.add(anakinSkywalker2);
+        forceUsers3.add(yoda);
+        System.out.println("You and your friends have grown greatly in strength. Master Yoda will now assist in your final trial. ");
+        level3(forceUsers3);
     }
 
 
@@ -118,26 +119,26 @@ public class Game {
                 System.out.print("Choose your target ((S)pectris, (N)afariouz, (H)aunte, (M)aul): ");
                 target = scan.nextLine();
                 if (target.equals("S")) {
-                    attacking(spectris, i);
+                    attacking2(spectris, i);
                 }
                 if (target.equals("N")) {
-                    attacking(nafariouz, i);
+                    attacking2(nafariouz, i);
                 }
                 if (target.equals("H")) {
-                    attacking(haunte, i);
+                    attacking2(haunte, i);
                 }
                 if (target.equals("M")) {
-                    attacking(maul, i);
+                    attacking2(maul, i);
                 }
             }
             for (int i = 0; i < enemyTeam2.size(); i++) {
                 double num = Math.random();
                 if (num > 0.5) {
-                    enemyTeam2.get(i).forceLightning(forceUsers.get(i));
+                    enemyTeam2.get(i).forceLightning(forceUsers2.get(i));
                 } else if (num > 0.25) {
-                    enemyTeam2.get(i).saberSlash(forceUsers.get(i));
+                    enemyTeam2.get(i).saberSlash(forceUsers2.get(i));
                 } else {
-                    enemyTeam2.get(i).forceChoke(forceUsers.get(i));
+                    enemyTeam2.get(i).forceChoke(forceUsers2.get(i));
                 }
             }
             afterMath2();
@@ -150,28 +151,47 @@ public class Game {
         enemyTeam3 = new ArrayList<SithMaster>();
         SithMaster mystere = new SithMaster("Mystere", 7500, 5000);
         SithMaster skexous = new SithMaster("Skexous", 7500, 5000);
+        SithMaster giusplei = new SithMaster("Gisplei", 12000, 5000);
+        SithMaster maul2 = new SithMaster("Maul", 12000, 4750);
         enemyTeam3.add(mystere);
         enemyTeam3.add(finalBoss);
         enemyTeam3.add(skexous);
-        while (enemyTeam.size() > 0) {
+        enemyTeam3.add(maul2);
+        enemyTeam3.add(giusplei);
+        while (enemyTeam3.size() > 0) {
             for (int i = 0; i < forceUsers.size(); i++) {
                 String target;
-                System.out.print("Choose your target ((M)ystere, (" + finalBoss.getName() + "), (S)kexous): ");
+                System.out.print("Choose your target ((M)ystere, (" + finalBoss.getName() + "), (S)kexous, (Ma)ul, (G)iusPlei): ");
                 target = scan.nextLine();
                 if (target.equals("M")) {
-                    attacking(mystere, i);
+                    attacking3(mystere, i);
                 }
                 if (target.equals(finalBoss.getName())) {
-                    attacking(finalBoss, i);
+                    attacking3(finalBoss, i);
                 }
                 if (target.equals("S")) {
-                    attacking(skexous, i);
+                    attacking3(skexous, i);
+                }
+                if (target.equals("Ma")) {
+                    attacking3(maul2, i);
+                }
+                if (target.equals("G")) {
+                    attacking3(giusplei, i);
                 }
             }
-            for (int i = 0; i < enemyTeam.size(); i++) {
-                enemyTeam.get(i).saberSlash(forceUsers.get(i));
+            for (int i = 0; i < enemyTeam3.size(); i++) {
+                double num = Math.random();
+                if (num > 0.5) {
+                    enemyTeam3.get(i).forceRepulse(forceUsers3.get(i));
+                } else if (num > 0.25) {
+                    enemyTeam3.get(i).forceLightning(forceUsers3.get(i));
+                } else if (num > 0.125) {
+                    enemyTeam3.get(i).saberSlash(forceUsers3.get(i));
+                } else {
+                    enemyTeam3.get(i).forceChoke(forceUsers3.get(i));
+                }
             }
-            afterMath();
+            afterMath3();
         }
     }
 
@@ -193,9 +213,48 @@ public class Game {
         }
     }
 
+    public void attacking2(ForceUser user, int num) {
+        String ability;
+        System.out.print("Choose your ability (force(P)ush, saber(S)lash, force(H)eal, saber(T)wirl): ");
+        ability = scan.nextLine();
+        if (ability.equals("P")) {
+            forceUsers2.get(num).forcePush(user);
+        }
+        if (ability.equals("S")) {
+            forceUsers2.get(num).saberSlash(user);
+        }
+        if (ability.equals("H")) {
+            heal2(num);
+        }
+        if (ability.equals("T")) {
+            forceUsers2.get(num).saberTwirl(user);
+        }
+    }
+
+    public void attacking3(ForceUser user, int num) {
+        String ability;
+        System.out.print("Choose your ability (force(P)ush, saber(S)lash, force(H)eal, saber(T)wirl, force(W)ave): ");
+        ability = scan.nextLine();
+        if (ability.equals("P")) {
+            forceUsers3.get(num).forcePush(user);
+        }
+        if (ability.equals("S")) {
+            forceUsers3.get(num).saberSlash(user);
+        }
+        if (ability.equals("H")) {
+            heal3(num);
+        }
+        if (ability.equals("T")) {
+            forceUsers3.get(num).saberTwirl(user);
+        }
+        if (ability.equals("W")) {
+            forceUsers3.get(num).forceWave(enemyTeam3);
+        }
+    }
+
     public void heal(int num) {
         String who;
-        System.out.print("Who would you like to heal? ((W)anobi, (A)kina, (" + forceUsers.get(0).getName() + "), Ana(k)in): ");
+        System.out.print("Who would you like to heal? ((W)anobi, (A)kina, (" + forceUsers.get(0).getName() + "): ");
         who = scan.nextLine();
         if (who.equals("W")) {
             forceUsers.get(num).forceHeal(forceUsers.get(num).getMidichlorianCount(), forceUsers.get(1));
@@ -206,12 +265,49 @@ public class Game {
         if (who.equals(forceUsers.get(0).getName())) {
             forceUsers.get(num).forceHeal(forceUsers.get(num).getMidichlorianCount(), forceUsers.get(0));
         }
+    }
+
+    public void heal2(int num) {
+        String who;
+        System.out.print("Who would you like to heal? ((W)anobi, (A)kina, (" + forceUsers2.get(0).getName() + "), Ana(k)in): ");
+        who = scan.nextLine();
+        if (who.equals("W")) {
+            forceUsers2.get(num).forceHeal(forceUsers2.get(num).getMidichlorianCount(), forceUsers2.get(1));
+        }
+        if (who.equals("A")) {
+            forceUsers2.get(num).forceHeal(forceUsers2.get(num).getMidichlorianCount(), forceUsers2.get(2));
+        }
+        if (who.equals(forceUsers3.get(0).getName())) {
+            forceUsers2.get(num).forceHeal(forceUsers2.get(num).getMidichlorianCount(), forceUsers2.get(0));
+        }
         if (who.equals("k")) {
-            forceUsers.get(num).forceHeal(forceUsers.get(num).getMidichlorianCount(), forceUsers.get(3));
+            forceUsers2.get(num).forceHeal(forceUsers2.get(num).getMidichlorianCount(), forceUsers2.get(3));
+        }
+    }
+
+    public void heal3(int num) {
+        String who;
+        System.out.print("Who would you like to heal? ((W)anobi, (A)kina, (" + forceUsers3.get(0).getName() + "), Ana(k)in, (Y)oda): ");
+        who = scan.nextLine();
+        if (who.equals("W")) {
+            forceUsers3.get(num).forceHeal(forceUsers3.get(num).getMidichlorianCount(), forceUsers3.get(1));
+        }
+        if (who.equals("A")) {
+            forceUsers3.get(num).forceHeal(forceUsers3.get(num).getMidichlorianCount(), forceUsers3.get(2));
+        }
+        if (who.equals(forceUsers3.get(0).getName())) {
+            forceUsers3.get(num).forceHeal(forceUsers3.get(num).getMidichlorianCount(), forceUsers3.get(0));
+        }
+        if (who.equals("k")) {
+            forceUsers3.get(num).forceHeal(forceUsers3.get(num).getMidichlorianCount(), forceUsers3.get(3));
+        }
+        if (who.equals("Y")) {
+            forceUsers3.get(num).forceHeal(forceUsers3.get(num).getMidichlorianCount(), forceUsers3.get(4));
         }
     }
 
     public void afterMath() {
+        ForceUser[][] allPresent = new ForceUser[2][3];
         for (int i = 0; i < forceUsers.size(); i++) {
             if (forceUsers.get(i).getHealth() <= 0) {
                 System.out.println(forceUsers.get(i).getName() + " health: " + forceUsers.get(i).getHealth() +

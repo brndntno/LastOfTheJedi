@@ -17,7 +17,7 @@ public class JediMaster extends JediKnight {
         }
     }
 
-    public void forceWave(ArrayList<ForceUser> users) {
+    public void forceWave(ArrayList<SithMaster> users) {
         for (int i = 0; i < users.size(); i++) {
             users.get(i).setHealth(-users.get(i).getInitialHealth() * 0.1);
         }
